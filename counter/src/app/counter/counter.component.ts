@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import * as CounterReducer from './state/counter.reducer';
+import * as CounterActions from './state/counter.actions';
 import { getCount } from './state';
 
 @Component({
@@ -20,4 +21,11 @@ export class CounterComponent implements OnInit {
     this.count$ = this.store.select(getCount);
   }
 
+  increment() {
+    this.store.dispatch(new CounterActions.CountIncrement());
+  }
+
+  decrement() {
+    this.store.dispatch(new CounterActions.CountDecrement());
+  }
 }
