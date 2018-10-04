@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import * as CounterReducer from './state/counter.reducer';
+import { getCount } from './state';
+
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
+  count$: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store<CounterReducer.State>) {}
 
   ngOnInit() {
+    this.count$ = this.store.select(getCount);
   }
 
 }
