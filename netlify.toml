@@ -1,0 +1,4 @@
+[build]
+  base = "counter"
+  command = "npm run build:prod"
+  publish = "counter/dist/counter"
