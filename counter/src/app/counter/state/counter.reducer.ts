@@ -19,6 +19,8 @@ export function reducer(state = initialState, action: Action): State {
       return {...state, count: state.count - 1};
     case CounterActionTypes.CountReset:
       return {...state, count: 0};
+    case CounterActionTypes.CountDouble:
+      return {...state, count: state.count * 2};
     default:
       return state;
   }

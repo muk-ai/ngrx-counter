@@ -32,4 +32,8 @@ export class CounterComponent implements OnInit {
   reset() {
     this.store.dispatch(new CounterActions.CountReset());
   }
+
+  double() {
+    this.store.dispatch(new CounterActions.CountDouble());
+  }
 }

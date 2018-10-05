@@ -4,6 +4,7 @@ export enum CounterActionTypes {
   CountIncrement = '[Counter] Increment Count',
   CountDecrement = '[Counter] Decrement Count',
   CountReset = '[Counter] Reset Count',
+  CountDouble = '[Counter] Double Count',
 }
 
 export class CountIncrement implements Action {
@@ -21,4 +22,9 @@ export class CountReset implements Action {
   public constructor() {}
 }
 
-export type CounterActions = CountIncrement | CountDecrement | CountReset;
+export class CountDouble implements Action {
+  readonly type = CounterActionTypes.CountDouble;
+  public constructor() {}
+}
+
+export type CounterActions = CountIncrement | CountDecrement | CountReset | CountDouble;
