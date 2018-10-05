@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CounterComponent } from './counter.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromCounter from './state';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterEffects } from './state/counter.effects';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('counter', fromCounter.reducers, { metaReducers: fromCounter.metaReducers })
+    StoreModule.forFeature('counter', fromCounter.reducers, { metaReducers: fromCounter.metaReducers }),
+    EffectsModule.forFeature([CounterEffects])
   ],
   declarations: [CounterComponent],
   exports: [CounterComponent]

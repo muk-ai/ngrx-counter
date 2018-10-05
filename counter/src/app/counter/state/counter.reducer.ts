@@ -17,6 +17,10 @@ export function reducer(state = initialState, action: Action): State {
     case CounterActionTypes.CountDecrement:
       // state.count--; return state; とはせずに新しくObjectを返す
       return {...state, count: state.count - 1};
+    case CounterActionTypes.CountReset:
+      return {...state, count: 0};
+    case CounterActionTypes.CountDouble:
+      return {...state, count: state.count * 2};
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CounterModule } from './counter/counter.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -16,6 +17,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     CounterModule,
     StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
