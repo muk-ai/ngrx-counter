@@ -38,6 +38,6 @@ export class CounterComponent implements OnInit {
   }
 
   delayedDouble() {
-    this.store.dispatch(new CounterActions.CountDelayedDouble());
+    this.store.dispatch(new CounterActions.CountDelayedDouble({ delay: 3000 }));
   }
 }

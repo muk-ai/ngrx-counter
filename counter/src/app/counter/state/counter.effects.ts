@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { mapTo, delay } from 'rxjs/operators';
+import { delay, mergeMap } from 'rxjs/operators';
 
-import * as CounterActions from './counter.actions';
+import { CounterActionTypes, CountDelayedDouble, CountDouble } from './counter.actions';
+import { from, of } from 'rxjs';
 
 @Injectable()
 export class CounterEffects {
 
   @Effect()
   delayedDouble$ = this.actions$.pipe(
-    ofType(CounterActions.CounterActionTypes.CountDelayedDouble),
-    mapTo(new CounterActions.CountDouble()),
-    delay(1000),
+    ofType<CountDelayedDouble>(CounterActionTypes.CountDelayedDouble),
+    mergeMap(action => {
+      return from(of(new CountDouble()).pipe(delay(action.payload.delay)));
+    }),
   );
 
   constructor(private actions$: Actions) {}

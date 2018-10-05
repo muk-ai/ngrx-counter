@@ -30,7 +30,7 @@ export class CountDouble implements Action {
 
 export class CountDelayedDouble implements Action {
   readonly type = CounterActionTypes.CountDelayedDouble;
-  public constructor() {}
+  public constructor(public payload: { delay: number }) {}
 }
 
 export type CounterActions = CountIncrement | CountDecrement | CountReset | CountDouble | CountDelayedDouble;
