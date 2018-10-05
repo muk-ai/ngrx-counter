@@ -28,4 +28,8 @@ export class CounterComponent implements OnInit {
   decrement() {
     this.store.dispatch(new CounterActions.CountDecrement());
   }
+
+  reset() {
+    this.store.dispatch(new CounterActions.CountReset());
+  }
 }
